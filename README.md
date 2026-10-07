@@ -1,2 +1,2 @@
 # KKRIT-Digital-Portfolio
-A portal for students and organizations where organizations can hire students for various roles—such as projects, internships, or full-time positions—and students showcase their work and expertise in a portfolio.
+Платформа для сбора и демонстрации индивидуальных достижений студентов, а также для взаимодействия с компаниями, как с работодателями. Платформа выступает как портфолио для студентов Красноярского колледжа радиоэлектроники и информационных технологий и платформой для найма обученных сотрудников команиями.
