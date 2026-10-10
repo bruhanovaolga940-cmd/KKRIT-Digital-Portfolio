@@ -10,18 +10,29 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up(): void
-    {
-        Schema::create('applications', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+{
+    Schema::create('jobs', function (Blueprint $table) {
+        $table->id();
+        $table->foreignId('company_id')->constrained('companies')->cascadeOnDelete();
 
-    /**
-     * Reverse the migrations.
-     */
-    public function down(): void
-    {
-        Schema::dropIfExists('applications');
-    }
+        $table->string('title');
+        $table->text('description');
+        $table->string('city', 150)->nullable();
+
+        $table->enum('status', ['draft', 'published', 'closed'])
+            ->default('draft');
+
+        $table->timestamp('published_at')->nullable();
+
+        $table->timestamps();
+
+        $table->index(['company_id', 'status']);
+        $table->index(['status', 'published_at']);
+    });
+}
+
+public function down(): void
+{
+    Schema::dropIfExists('jobs');
+}
 };
